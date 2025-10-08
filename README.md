@@ -20,13 +20,4 @@ Hero Section Design: Successfully utilized CSS background gradients (the blue-to
 
 Emphasis on Innovation: The "Inspired by Innovation" section features clean text paired with a compelling AI-generated or high-quality image (lightbulb with colors) to visually reinforce the company's message about "transformative digital solutions."
 
-🛠️ Technical Implementation
-This section tells recruiters how you built it and the skills you utilized:
 
-Responsive Design: The entire layout is built using Flexbox or CSS Grid to ensure a flawless presentation on all devices (desktops, tablets, and phones). Specify which one you used.
-
-Semantic HTML5: Used appropriate tags (<header>, <nav>, <section>) for better structure, accessibility, and SEO.
-
-CSS Pseudo-Elements/States: Used for the interactive elements, such as the hover effect on the navigation links and the distinct styling for the CTA button.
-
-Clean, Maintainable Code: Wrote well-structured and commented CSS (or used a preprocessor like SASS/LESS) for easy maintenance.
