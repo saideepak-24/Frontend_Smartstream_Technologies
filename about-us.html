@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SMARTSTREAM TECHNOLOGIES</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111;
+      padding: 10px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar .logo img { height: 60px; }
+    .navbar .menu {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .navbar .menu li a {
+      padding: 8px 12px;
+      transition: 0.3s;
+    }
+    .navbar .menu li a:hover,
+    .navbar .menu li a.active {
+      background: #00bfff;
+      color: #000;
+      border-radius: 4px;
+    }
+    .dropdown { position: relative; }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
+      flex-direction: column;
+      background: #222;
+      min-width: 160px;
+    }
+    .dropdown:hover .dropdown-menu { display: flex; }
+    .dropdown-menu li a { padding: 10px; display: block; }
+    .contact-btn {
+      background: #00bfff;
+      color: #000;
+      padding: 8px 15px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .contact-btn:hover { background: #008fcc; }
+
+
+    .about-section {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+    .main-heading { font-size: 2.5rem; font-weight: 700; margin-bottom: 30px; }
+    .glow {
+      width: 320px; height: 120px;
+      margin: 0 auto 40px;
+      background: radial-gradient(circle at center,
+        rgba(0,140,255,0.8),
+        rgba(100,0,150,0.3),
+        transparent 70%);
+      filter: blur(35px);
+      border-radius: 50%;
+    }
+    .intro { font-size: 1.1rem; margin-bottom: 50px; }
+    .sub-heading { font-size: 2rem; font-weight: 700; margin-bottom: 20px; }
+    .details { font-size: 1.1rem; margin-bottom: 20px; }
+    @media (max-width:768px){
+      .main-heading{font-size:2rem;}
+      .sub-heading{font-size:1.6rem;}
+      .glow{width:200px;height:80px;}
+    }
+
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto;
+      gap: 30px;
+      max-width: 1100px;
+      margin: 60px auto;
+    }
+    .card {
+      background: #111;
+      padding: 30px;
+      border-radius: 12px;
+      position: relative;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 10px rgba(0,255,200,0.15);
+    }
+    .card.full { grid-column: span 2; }
+    .icon {
+      font-size: 40px;
+      color: #00ffc8;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px #00ffc8, 0 0 20px #00ffc8;
+    }
+    .card h2 { font-size: 22px; margin-bottom: 12px; }
+    .card p { font-size: 15px; line-height: 1.6; color: #ccc; }
+    .number {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 40px;
+      font-weight: bold;
+      color: #fff;
+      opacity: 0.15;
+    }
+    @keyframes pulseGlow {
+      0%{box-shadow:0 0 15px rgba(0,255,200,0.4),0 0 30px rgba(0,255,200,0.3);}
+      50%{box-shadow:0 0 30px rgba(0,255,200,0.8),0 0 60px rgba(0,255,200,0.6);}
+      100%{box-shadow:0 0 15px rgba(0,255,200,0.4),0 0 30px rgba(0,255,200,0.3);}
+    }
+    .glow-card { animation: pulseGlow 2s infinite ease-in-out; transform: translateY(-5px); }
+
+
+    .core-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 10%;
+      background: #1e1e1e;
+    }
+    .core-text { flex: 1; }
+    .core-text h2 { font-size: 2.4rem; font-weight: 700; color: #00bfff; margin-bottom: 20px; }
+    .core-text p { font-size: 1.05rem; margin-bottom: 20px; color: #e0e0e0; }
+    .core-image { flex: 1; display: flex; justify-content: center; }
+    .core-image img {
+      max-width: 500px;
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+    @media (max-width:900px){
+      .core-section{flex-direction:column;text-align:center;padding:40px 20px;}
+      .core-text{margin-bottom:20px;}
+      .core-image img{max-width:90%;}
+    }
+
+
+    .white-section {
+      background-color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+      color: #222;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    }
+    .white-section h2 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #00a9e0;
+      margin-bottom: 20px;
+    }
+    .white-section p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+
+    .footer {
+      background: #0e0e0e;
+      padding: 40px 20px 10px;
+      text-align: center;
+    }
+    .services {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 30px;
+    }
+    .services span:not(:last-child)::after { content:"|"; margin-left:10px; }
+    .connect { color:#00bfff; font-weight:bold; font-size:18px; margin-bottom:10px; }
+    .contact { margin-bottom:20px; }
+    .contact span { margin:0 10px; font-size:16px; }
+    .footer-bottom {
+      background: #1c1f26;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .footer-bottom .copyright { font-size: 14px; }
+    .social-icons a {
+      color: #bbb; margin-left: 15px; font-size: 18px; transition: 0.3s;
+    }
+    .social-icons a:hover { color: #00bfff; }
+    .back-to-top {
+      position: fixed;
+      right: 20px; bottom: 20px;
+      border: 2px solid #00bfff;
+      border-radius: 50%;
+      width: 45px; height: 45px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #00bfff; font-size: 20px;
+      z-index: 99;
+      background: transparent;
+    }
+    .back-to-top:hover { background: #00bfff; color: #000; }
+  </style>
+</head>
+<body>
+
+
+  <nav class="navbar">
+  <div class="logo">
+    <img src="https://static.vecteezy.com/system/resources/previews/009/119/173/original/sst-logo-sst-letter-sst-letter-logo-design-initials-sst-logo-linked-with-circle-and-uppercase-monogram-logo-sst-typography-for-technology-business-and-real-estate-brand-vector.jpg" alt="Logo">
+  </div>
+  <ul class="menu">
+    <li><a href="../index.html" class="active">Home</a></li>
+    <li><a href="../about-us.html">About Us</a></li>
+    <li><a href="../our-team.html">Our Team</a></li>
+    <li class="dropdown">
+      <a href="services/">Services ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="../services/software-development.html">Software Development</a></li>
+        <li><a href="../services/hrms.html">HRMS</a></li>
+        <li><a href="../services/digital-marketing.html">Digital Marketing</a></li>
+      </ul>
+    </li>
+    <li><a href="../clients.html">Clients & Testimonials</a></li>
+    <li><a href="../careers.html">Careers</a></li>
+  </ul>
+  <a href="../contact.html" class="contact-btn"><span>Contact Us</span> ▶</a>
+</nav>
+
+
+<section class="about-section">
+    <h1 class="main-heading">Building Trust Driving Innovation</h1>
+    <div class="glow"></div>
+    <p class="intro">At Smart Stream Technologies, we are not just a technology company, we are architects of success, crafting tailored solutions that empower businesses to thrive.</p>
+    <h2 class="sub-heading">The Journey That Defines Us</h2>
+    <p class="details">Founded in 2018, Smart Stream Technologies set out with a mission to provide IT solutions that truly make a difference.</p>
+    <p class="details">Today, we are a trusted partner for businesses of all sizes, offering a wide range of services, from live streaming and HRMS to digital marketing and co-working spaces. Our dedication to innovation, creativity, and meaningful partnerships has powered growth for our clients and ourselves.</p>
+  </section>
+
+
+  <div class="container">
+    <div class="card">
+      <i class="fa-solid fa-headset icon"></i>
+      <h2>Values</h2>
+      <p><strong>Innovation with Purpose:</strong> Creating solutions that solve real-world challenges.</p>
+      <p><strong>Empathy in Action:</strong> Building technology that puts people first.</p>
+      <p><strong>Relentless Pursuit of Excellence:</strong> Striving for perfection in every solution we deliver.</p>
+      <div class="number">01</div>
+    </div>
+    <div class="card">
+      <i class="fa-solid fa-eye icon"></i>
+      <h2>Vision</h2>
+      <p>To revolutionise the digital world by creating human-centric software that fosters connection, innovation, and sustainable growth.</p>
+      <div class="number">02</div>
+    </div>
+    <div class="card full">
+      <i class="fa-solid fa-lightbulb icon"></i>
+      <h2>Mission</h2>
+      <p>Empowering businesses to transform ideas into meaningful, intuitive, and impactful technology solutions that leave a lasting legacy.</p>
+      <div class="number">03</div>
+    </div>
+  </div>
+
+
+  <section class="core-section">
+    <div class="core-text">
+      <h2>The Core of What We Stand For</h2>
+      <p>At Smart Stream Technologies, we are driven by principles that ensure excellence and trust in everything we do...</p>
+    </div>
+    <div class="core-image">
+      <img src="https://c8.alamy.com/comp/2RKGGFW/group-of-multigenerational-people-hugging-each-others-support-multiracial-and-diversity-concept-main-focus-on-center-people-black-and-white-edi-2RKGGFW.jpg" alt="Team">
+    </div>
+  </section>
+
+
+  <section class="white-section">
+    <h2>Behind Every Idea, There’s This Space</h2>
+    <p>
+      Our workspace is designed to inspire creativity and productivity. 
+      It’s a collaborative and inspiring space where our team excels, 
+      enabling them to deliver innovative solutions that drive success 
+      for our clients.
+    </p>
+  </section>
+
+
+  <footer class="footer">
+    <div class="services">
+      <span>Software Development</span>
+      <span>Live Streaming</span>
+      <span>Cloud computing</span>
+      <span>IoT & Embedded Computing</span>
+      <span>Tracking and Telematics</span>
+      <span>AI Video Audio Analytics</span>
+      <span>Video Management System</span>
+      <span>HRMS</span>
+      <span>Digital Marketing</span>
+      <span>Talent Acquisition</span>
+    </div>
+    <div class="connect">CONNECT</div>
+    <div class="contact">
+      <span>Call us : +91 64734 26272</span>
+      <span>+91 75425 86532</span>
+      <span>Email : info@smartstreamtech.com</span>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    <div class="copyright">© 2025 SST. All rights reserved.</div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-skype"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+
+  <div class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
+
+  <script>
+    const cards = document.querySelectorAll(".card");
+    document.addEventListener("mousemove", e => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const dx = e.clientX - (rect.left + rect.width / 2);
+        const dy = e.clientY - (rect.top + rect.height / 2);
+        const distance = Math.sqrt(dx*dx + dy*dy);
+        if (distance < 180) card.classList.add("glow-card");
+        else card.classList.remove("glow-card");
+      });
+    });
+  </script>
+
+</body>
+</html>
